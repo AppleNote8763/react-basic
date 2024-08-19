@@ -52,7 +52,6 @@ export function FunctionComponent () {
 //   }
 // }
 
-
 // 함수형 : rfc 단축 명령으로 생성 가능
 // 함수명 = 파일명과 동일하게 작성됨
 
@@ -85,7 +84,7 @@ export default function Component () {
     // 4. 주석을 사용할 땐 {/*  */}를 사용
     return (
         <>
-            <input className="" />
+            {/* <input className='' /> */}
             <div>Function Component</div>
             <div>Function Component</div>
         </>
