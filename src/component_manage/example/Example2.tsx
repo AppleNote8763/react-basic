@@ -3,9 +3,9 @@ import './Example2.css';
 
 interface Props {
     tableType: boolean;
-    count?: number;
-    name?: string;
-    attendance?: boolean;
+    count: number;
+    name: string;
+    attendance: boolean;
 }
 
 function EmployeeInformation({ tableType, count, name, attendance }: Props) {
@@ -32,6 +32,9 @@ export default function Example2() {
 
     const informationTop = {
         tableType: true,
+        count: 1,
+        name: '1',
+        attendance: true
     }
 
     const information1 = {
