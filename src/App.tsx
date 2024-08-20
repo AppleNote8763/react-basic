@@ -1,17 +1,20 @@
-    import React from 'react';
-    import Component, { ClassComponent, FunctionComponent as F } from './component/Component';
-    import './App.css';
-    import CurlyBraces from './component/CurlyBraces';
+import React from "react";
+import Component, {ClassComponent, FunctionComponent as F,
+} from "./component/Component";
+import "./App.css";
+import CurlyBraces from "./component/CurlyBraces";
+import Properties from "./component_manage/Properties";
 
-    function App() {
+function App() {
     return (
         <>
-        {/* <Component />
-        <ClassComponent />
-        <F /> */}
-        <CurlyBraces />
+            {/* <Component /> */}
+            {/* <ClassComponent /> */}
+            {/* <F /> */}
+            {/* <CurlyBraces /> */}
+            <Properties />
         </>
     );
-    }
+}
 
-    export default App;
+export default App;
