@@ -1,3 +1,4 @@
+import React from 'react'
 export function getImageUrl(imageId: String, size = 's') {
     return (
         'https://i.imgur.com/' +

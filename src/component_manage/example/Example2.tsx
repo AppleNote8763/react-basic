@@ -1,77 +1,107 @@
 import React from 'react'
 import './Example2.css';
 
-interface Props {
-    tableType: boolean;
-    count: number;
-    name: string;
-    attendance: boolean;
+interface TableRowProps {
+    employeeNumber: string;
+    employeeName: string;
+    workState: boolean;
 }
 
-function EmployeeInformation({ tableType, count, name, attendance }: Props) {
-
-    if (tableType === true) {
-        return(
-            <div className='th'>
-                <div className='td'>사번</div>
-                <div className='td'>이름</div>
-                <div className='td'>출근상태</div>
-            </div>
-        )
-    }
-    return (
-        <div className='tr'>
-                <div className='td'>{count}</div>
-                <div className='td'>{name}</div>
-                <div className='td' style={{color: attendance === true ? 'red': 'blue'}}>●</div>
+function TableHeder() {
+    return(
+        <div className='th'>
+            <div className='td'>사번</div>
+            <div className='td'>이름</div>
+            <div className='td'>출근상태</div>
         </div>
     )
 }
 
+function TableRow({ employeeNumber, employeeName, workState }: TableRowProps) {
+
+    const color = workState === true ? 'blue': 'red';
+
+    return (
+        <div className='tr'>
+                <div className='td'>{employeeNumber}</div>
+                <div className='td'>{employeeName}</div>
+                <div className='td' style={{color: color}}>●</div>
+        </div>
+    )
+}
+
+interface TableDataTrProps {
+    type: 'tr';
+    employeeNumber: string;
+    employeeName: string;
+    workState: boolean;
+}
+
+interface TableDataThProps {
+    type: 'th';
+}
+
+function TableData(props: TableDataTrProps | TableDataThProps) {
+
+    const {type} = props
+
+    if (type === 'th') {
+        return (
+            <div className='th'>
+            <div className='td'>사번</div>
+            <div className='td'>이름</div>
+            <div className='td'>출근상태</div>
+        </div>
+        )
+    }
+
+    const {employeeNumber, employeeName, workState} = props
+    const color = workState === true ? 'blue': 'red';
+
+    return (
+        
+        <div className='tr'>
+                <div className='td'>{employeeNumber}</div>
+                <div className='td'>{employeeName}</div>
+                <div className='td' style={{color: color}}>●</div>
+        </div>
+    )
+
+}
+
 export default function Example2() {
 
-    const informationTop = {
-        tableType: true,
-        count: 1,
-        name: '1',
-        attendance: true
+    const employee1 = {
+        employeeNumber: '202401',
+        employeeName: '홍길동',
+        workState: false
     }
 
-    const information1 = {
-        tableType: false,
-        count: 202401,
-        name: '홍길동',
-        attendance: true
+    const employee2 = {
+        employeeNumber: '202404',
+        employeeName: '이영희',
+        workState: true
     }
 
-    const information2 = {
-        tableType: false,
-        count: 202404,
-        name: '이영희',
-        attendance: false
+    const employee3 = {
+        employeeNumber: '202403',
+        employeeName: '김철수',
+        workState: true
     }
 
-    const information3 = {
-        tableType: false,
-        count: 202403,
-        name: '김철수',
-        attendance: false
-    }
-
-    const information4 = {
-        tableType: false,
-        count: 202404,
-        name: '이름',
-        attendance: true
+    const employee4 = {
+        employeeNumber: '202404',
+        employeeName: '이름',
+        workState: false
     }
 
     return (
         <div className='table'>
-            <EmployeeInformation {...informationTop}/>
-            <EmployeeInformation {...information1}/>
-            <EmployeeInformation {...information2}/>
-            <EmployeeInformation {...information3}/>
-            <EmployeeInformation {...information4}/>
+            <TableHeder />
+            <TableRow {...employee1} />
+            <TableRow {...employee2} />
+            <TableRow {...employee3} />
+            <TableRow {...employee4} />
         </div>
     )
 }
