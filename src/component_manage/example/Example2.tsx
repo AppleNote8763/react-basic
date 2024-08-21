@@ -97,11 +97,43 @@ export default function Example2() {
 
     return (
         <div className='table'>
-            <TableHeder />
+            {/* <TableHeder />
             <TableRow {...employee1} />
             <TableRow {...employee2} />
             <TableRow {...employee3} />
-            <TableRow {...employee4} />
+            <TableRow {...employee4} /> */}
+
+            {/* <TableData type='th' />
+            <TableData type='tr' {...employee1} />
+            <TableData type='tr' {...employee2} />
+            <TableData type='tr' {...employee3} />
+            <TableData type='tr' {...employee4} /> */}
+
+            <TableHeder />
+            {employees.map((employee, index) => <TableRow key={index} {...employee} />)}
         </div>
     )
 }
+
+const employees = [
+    {
+        employeeNumber: '202401',
+        employeeName: '홍길동',
+        workState: false
+    },
+    {
+        employeeNumber: '202404',
+        employeeName: '이영희',
+        workState: true
+    },
+    {
+        employeeNumber: '202403',
+        employeeName: '김철수',
+        workState: true
+    },
+    {
+        employeeNumber: '202404',
+        employeeName: '이름',
+        workState: false
+    }
+]
