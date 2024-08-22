@@ -22,8 +22,10 @@ export default function ListRender() {
     for (let count = 0; count < 10; count++) {
         counts.push(count);
     }
+    // [0,1,2,3,4,5,6,7,8,9]
+    
     const counts2 = new Array(10).fill(0);  // key가 필요 없을 때
-
+    // [0,0,0,0,0,0,0,0,0,0]
     // 특정 조건에 따라 반복 렌더링 방법
     const employees = [
         {name: '홍길동', department: '재무'},
@@ -38,7 +40,7 @@ export default function ListRender() {
             {listItems}
             {counts.map(item => <h5 key={item}>반복작업</h5>)}
             {counts2.map((item, index) => <h5 key={index}>반복작업2</h5>)}
-            {fiEmployees.map((item, index) => <h5>{`이름 : ${item.name} 부서 : ${item.department}`}</h5>)}
+            {fiEmployees.map((item, index) => <h5 key={index}>{`이름 : ${item.name} 부서 : ${item.department}`}</h5>)}
         </div>
     )
 }
