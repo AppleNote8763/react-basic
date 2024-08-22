@@ -10,6 +10,7 @@ import Example2 from "./component_manage/example/Example2";
 import Example2prototype from "./component_manage/example/Example2prototype";
 import ListRender from "./component_manage/ListRender";
 import EventComponent from "./interaction/EventComponent";
+import StateComponent from "./interaction/StateComponent";
 
 function App() {
     return (
@@ -25,7 +26,8 @@ function App() {
             {/* <Example2 /> */}
             {/* <Example2prototype /> */}
             {/* <ListRender /> */}
-            <EventComponent />
+            {/* <EventComponent /> */}
+            <StateComponent />
         </>
     );
 }
