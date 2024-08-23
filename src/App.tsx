@@ -25,9 +25,9 @@ function App() {
             {/* <Gallery /> */}
             {/* <Example2 /> */}
             {/* <Example2prototype /> */}
-            <ListRender />
+            {/* <ListRender /> */}
             {/* <EventComponent /> */}
-            {/* <StateComponent /> */}
+            <StateComponent />
         </>
     );
 }
