@@ -21,6 +21,7 @@ export default function HookComponent1() {
     const [state1, setState1] = useState<number>(0);
     const [show, setShow] = useState<boolean>(false);
 
+    // - hook 함수는 반드시 컴포넌트 코드 블럭 라인에 존재해야함
     // const func = () => {
     //     const [state3, setState3] = useState<number>(0);
     // }
