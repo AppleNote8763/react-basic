@@ -14,7 +14,9 @@ import ForwardingStateComponent from "./interaction/ForwardingStateComponent";
 import HookComponent1 from "./hook/HookComponent1";
 import HookComponent2 from "./hook/HookComponent2";
 import CustomHook from "./hook/CustomHook";
-import { Route, Routes } from "react-router";
+import { Outlet, Route, Routes } from "react-router";
+import QueryString from "./router/QueryString";
+import PathVariable from "./router/PathVariable";
 
 // react-router 패키지:
 // - react의 SPA(Single Page Application)에서 라우팅을 구현하기 위한 라이브러리
@@ -36,18 +38,42 @@ import { Route, Routes } from "react-router";
 // - element 속성 : 랜더링할 컴포넌트 지정
 // - index 속성 : 현재 경로의 기본 라우터로 지정
 
+function Layout() {
+    // <Outlet> : 부모 <Route>에 해당 컴포넌트가 element로 등록 되었을 때
+    //            자식 <Route>의 element가 해당 위치에 렌더링 되도록 하는 컴포넌트
+
+    return (
+        <div>
+            <div style={{height: '100px', backgroundColor: 'red'}}></div>
+            <Outlet />
+            <div style={{height: '100px', backgroundColor: 'blue'}}></div>
+        </div>
+    )
+
+}
+
 function App() {
     return (
         <Routes>
+
             <Route index element={<h1>기본 페이지</h1>} />
-            <Route path='/component' element={<Component />} />
-            {/* <Component /> */}
-            <Route path="/class-component" element={<ClassComponent />} />
-            {/* <ClassComponent /> */}
-            <Route path="/function-component" element={<FunctionComponent />} />
-            {/* <FunctionComponent /> */}
-            <Route path="/component/curly-braces" element={<CurlyBraces />} />
-            {/* <CurlyBraces /> */}
+
+            <Route path="/component" element={<Layout />}>
+                <Route index element={<Component />} />
+                <Route path="class-component" element={<ClassComponent />} />
+                <Route path="function-component" element={<FunctionComponent />} />
+                <Route path="curly-braces" element={<CurlyBraces />} />
+            </Route>
+
+            <Route path="/router">
+                {/* http://localhost:3000/router/query-string?name=홍길동&age=23 */}
+                <Route path="query-string" element={<QueryString />} />
+                {/* http://localhost:3000/router/path-variable/홍길동 */}
+                <Route path="path-variable/:name" element={<PathVariable />} />
+            </Route>
+
+            <Route path="*" element={<h1>404!!!</h1>} />
+
             {/* <Properties /> */}
             {/* <Gallery /> */}
             {/* <ConditionalRender /> */}
@@ -61,6 +87,7 @@ function App() {
             {/* <HookComponent1 /> */}
             {/* <HookComponent2 /> */}
             {/* <CustomHook /> */}
+
         </Routes>
     );
 }
