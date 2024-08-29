@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 // - 이 문제를 해결하기 위해 글로벌 상태로 관리하는 방법이 파생됨
 // - 글로벌 상태 관리 기법으로 context, Redux, zustand라는 기법이 존재
 
-export default function ForwordingStateComponent() {
+export default function ForwardingStateComponent() {
 
     const [count, setCount] = useState<number>(0);
 
