@@ -18,6 +18,7 @@ import { Outlet, Route, Routes, useLocation } from "react-router";
 import QueryString from "./router/QueryString";
 import PathVariable from "./router/PathVariable";
 import PathMove from "./router/PathMove";
+import Zustand from "./zustand/Zustand";
 
 // react-router 패키지:
 // - react의 SPA(Single Page Application)에서 라우팅을 구현하기 위한 라이브러리
@@ -80,6 +81,8 @@ function App() {
                 {/* http://localhost:3000/router/path-move */}
                 <Route path="path-move" element={<PathMove />} />
             </Route>
+
+            <Route path="/zustnad" element={<Zustand />} />
 
             <Route path="*" element={<h1>404!!!</h1>} />
 
