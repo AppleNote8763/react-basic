@@ -83,7 +83,7 @@ function App() {
                 <Route path="path-move" element={<PathMove />} />
             </Route>
 
-            <Route path="/zustnad" element={<Zustand />} />
+            <Route path="/zustand" element={<Zustand />} />
             <Route path="/react-cookie" element={<ReactCookie />} />
 
             <Route path="*" element={<h1>404!!!</h1>} />
